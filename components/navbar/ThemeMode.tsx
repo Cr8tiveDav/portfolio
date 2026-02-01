@@ -14,6 +14,7 @@ const ThemeMode = () => {
     <>
       <Button
         size='icon-lg'
+        variant='ghost'
         className='cursor-pointer'
         onClick={() => toggleTheme()}
       >

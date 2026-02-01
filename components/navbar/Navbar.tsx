@@ -17,6 +17,7 @@ const Navbar = () => {
           <ThemeMode />
           <Button
             size='icon-lg'
+            variant='ghost'
             className='sm:hidden cursor-pointer'
             onClick={() => toggle()}
           >
