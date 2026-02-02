@@ -6,6 +6,7 @@ import { ThemeProvider } from './provider/ThemeProvider';
 import Container from '@/components/global/Container';
 import { SidebarProvider } from './provider/SidebarProvider';
 import Sidebar from '@/components/navbar/Sidebar';
+import { BackgroundEffects } from '@/components/global/BackgroundEffects';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -41,6 +42,8 @@ export default function RootLayout({
           <SidebarProvider>
             <Sidebar />
             <Navbar />
+            <BackgroundEffects />
+            {/* </BackgroundEffects> */}
             <Container>{children}</Container>
           </SidebarProvider>
         </ThemeProvider>

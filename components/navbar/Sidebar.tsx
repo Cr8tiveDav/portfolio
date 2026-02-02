@@ -20,7 +20,7 @@ const Sidebar = () => {
         ></div>
       )}
       <aside
-        className={`fixed inset-y-0 right-0 z-50 flex flex-col sm:hidden bg-sidebar border-l border-sidebar-border w-[60%] transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-[calc(100%+1px)]'}`}
+        className={`fixed inset-y-0 right-0 z-50 flex flex-col sm:hidden bg-sidebar/50 border-l border-sidebar-border w-[60%] transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-[calc(100%+1px)]'}`}
       >
         <header className='fixed inset-x-0 flex justify-between shrink-0 p-4'>
           <Logo />

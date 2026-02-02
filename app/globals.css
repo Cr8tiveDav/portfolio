@@ -44,6 +44,7 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+  --animate-meteor: meteor 5s linear infinite;
 }
 
 :root {
@@ -121,5 +122,45 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@utility meteor {
+  @apply absolute
+    top-1/4 left-1/4
+    h-0.5 w-0.5
+    rounded-full
+    bg-primary
+    shadow-[0_0_4px_2px_rgba(255,255,255,0.1)]
+    rotate-215
+    pointer-events-none;
+
+  &::before {
+    content: '';
+    @apply absolute
+      top-1/2 -translate-y-1/2
+      /* -left-12.5              start the tail left of the dot */
+      w-12 h-px          /* longer tail looks nicer */
+      bg-linear-to-r
+      from-transparent
+      via-primary/60
+      to-transparent;
+  }
+}
+
+@keyframes meteor {
+  0% {
+    transform: rotate(215deg) translateX(0);
+    opacity: 0.9;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(215deg) translateX(-800px); /* longer travel = better effect */
+    opacity: 0;
   }
 }
