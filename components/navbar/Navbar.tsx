@@ -10,7 +10,7 @@ import { useSidebar } from '@/app/provider/SidebarProvider';
 const Navbar = () => {
   const { toggle } = useSidebar();
   return (
-    <nav className='border-b  py-4'>
+    <nav className='fixed inset-x-0 border-b  py-4'>
       <Container className='flex justify-between align-middle'>
         <Logo />
         <div className='flex gap-4'>

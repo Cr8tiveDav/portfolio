@@ -27,7 +27,7 @@ export const BackgroundEffects = () => {
       <div className='fixed bottom-32 -left-20 size-72 bg-blue-500/20 rounded-full blur-[100px] opacity-70 dark:opacity-40 pointer-events-none' />
 
       {/* Background pattern */}
-      <div className='fixed inset-0 opacity-[0.03] pointer-events-none grid-pattern' />
+      <div className='fixed inset-0 bg-blue-700 opacity-[0.03] pointer-events-none grid-pattern' />
 
       {/* Meteor effect */}
       {meteors.map((meteor, i) => {
