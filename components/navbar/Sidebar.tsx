@@ -4,7 +4,7 @@ import { useSidebar } from '@/app/provider/SidebarProvider';
 import { RxCross2 } from 'react-icons/rx';
 import Logo from './Logo';
 import { Button } from '../ui/button';
-import { links } from '@/utils/links';
+import { links } from '@/utils/data';
 import Link from 'next/link';
 
 const Sidebar = () => {
@@ -39,7 +39,7 @@ const Sidebar = () => {
               return (
                 <Link
                   key={link.id}
-                  href={link.href}
+                  href={link.url}
                   onClick={() => close()}
                   className='text-foreground text-lg font-medium hover:text-blue-400 hover:scale-105 transition-all'
                 >
