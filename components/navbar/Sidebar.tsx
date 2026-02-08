@@ -6,9 +6,24 @@ import Logo from './Logo';
 import { Button } from '../ui/button';
 import { links } from '@/utils/data';
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 const Sidebar = () => {
   const { isOpen, close } = useSidebar();
+
+  // Toggle scroll event when the sidebar is open/close
+  useEffect(() => {
+    if (isOpen) {
+      document.documentElement.classList.add('overflow-hidden');
+    } else {
+      document.documentElement.classList.remove('overflow-hidden');
+    }
+
+    // clear class when the component unmount
+    return () => {
+      document.documentElement.classList.remove('overflow-hidden');
+    };
+  });
 
   return (
     <>
