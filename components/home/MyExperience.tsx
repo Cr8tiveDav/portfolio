@@ -17,14 +17,14 @@ const MyExperience = () => {
               className='mb-8 p-6 border rounded-md bg-white/90 drop-shadow-md dark:bg-black/40 hover:border-blue-700'
             >
               <h3 className='text-lg font-medium'>{exp.title}</h3>
-              <div className='flex gap-1 items-center'>
+              <div className='text-sm text-muted-foreground flex gap-1 items-center'>
                 <p>{exp.company}</p>
                 <BsDot />
                 <p>{exp.date}</p>
               </div>
 
               <hr className='my-2' />
-              <p>{exp.description}</p>
+              <p className='text-muted-foreground'>{exp.description}</p>
             </div>
           );
         })}

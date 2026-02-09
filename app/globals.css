@@ -171,3 +171,8 @@
     opacity: 0;
   }
 }
+
+/* Disable scroll event */
+.overflow-hidden {
+  overflow-y: hidden;
+}

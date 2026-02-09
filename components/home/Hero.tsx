@@ -2,11 +2,9 @@
 import { Button } from '../ui/button';
 import { IoArrowForward } from 'react-icons/io5';
 import { BsDownload } from 'react-icons/bs';
-import { FiGithub } from 'react-icons/fi';
-import { AiOutlineX } from 'react-icons/ai';
-import { HiOutlineEnvelope } from 'react-icons/hi2';
 import { TypeAnimation } from 'react-type-animation';
 import Link from 'next/link';
+import SocialLinks from '../socials/SocialLinks';
 
 const Hero = () => {
   return (
@@ -50,29 +48,7 @@ const Hero = () => {
           Download CV
         </Button>
       </div>
-      <div className='mt-16 flex gap-8'>
-        <a
-          href='https://github.com/Cr8tiveDav'
-          target='_blank'
-          className='cursor-pointer hover:text-blue-500 '
-        >
-          <FiGithub className='w-5 h-5' />
-        </a>
-        <a
-          href='https://x.com/Cr8tiveDav'
-          target='_blank'
-          className='cursor-pointer hover:text-blue-500 '
-        >
-          <AiOutlineX className='w-5 h-5' />
-        </a>
-        <a
-          href='mailto:davidezeike6@gmail.com'
-          target='_blank'
-          className='cursor-pointer hover:text-blue-500 '
-        >
-          <HiOutlineEnvelope className='w-5 h-5' />
-        </a>
-      </div>
+      <SocialLinks className='mt-16 gap-8' />
     </section>
   );
 };

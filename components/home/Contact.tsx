@@ -63,7 +63,7 @@ const Contact = () => {
                 className='placeholder:capitalize'
               />
               <FormInput
-                type='text'
+                type='email'
                 name='email'
                 label='email'
                 placeholder='your.email@example.com'

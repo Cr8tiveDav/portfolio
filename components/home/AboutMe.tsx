@@ -34,6 +34,10 @@ const AboutMe = () => {
           intuitive. I specialize in bridging the gap between raw concepts and
           production-ready applications, ensuring every transition is smooth and
           every pixel has a purpose.
+          <br />
+          <br /> I work primarily with React, Next.js, and TypeScript to manage
+          complex data via API integrations and build accessible applications
+          that don&apos;t compromise on modern design.
         </p>
       </article>
       <h2 className='text-2xl md:text-4xl dark:text-blue-100 text-center font-semibold mb-8'>

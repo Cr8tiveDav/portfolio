@@ -8,6 +8,7 @@ import { SidebarProvider } from './provider/SidebarProvider';
 import Sidebar from '@/components/navbar/Sidebar';
 import { BackgroundEffects } from '@/components/global/BackgroundEffects';
 import { Toaster } from 'sonner';
+import Footer from '@/components/home/Footer';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -47,6 +48,7 @@ export default function RootLayout({
             {/* </BackgroundEffects> */}
             <Container>{children}</Container>
           </SidebarProvider>
+          <Footer />
           <Toaster />
         </ThemeProvider>
       </body>
