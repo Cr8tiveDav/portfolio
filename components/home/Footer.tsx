@@ -15,7 +15,11 @@ const Footer = () => {
         <SocialLinks className='gap-2' />
         <p className='text-xs'>
           Built with{' '}
-          <span role='img' aria-label='love'>
+          <span
+            role='img'
+            aria-label='love'
+            className='inline-block animate-heartBeat'
+          >
             ❤️
           </span>{' '}
           by Cr8tiveDav
