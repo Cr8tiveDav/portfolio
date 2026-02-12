@@ -7,7 +7,7 @@ import React from 'react';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const sendEmailAction = async (
-  prevState: any,
+  _prevState: any,
   formData: FormData
 ): Promise<ActionResult> => {
   const name = formData.get('name') as string;
@@ -30,11 +30,12 @@ export const sendEmailAction = async (
     });
 
     if (error) {
-      console.log(error);
       return { message: 'Failed to send message' };
     }
-    console.log(data);
-    return { message: 'Message sent. We will get back to you shortly.' };
+    return {
+      message:
+        'Thanks for sending us a message. We will get back to you shortly.',
+    };
   } catch (error) {
     console.log(error);
     return { message: 'Error' };
