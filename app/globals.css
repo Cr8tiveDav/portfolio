@@ -48,22 +48,19 @@
   /* Mateor animation variable */
   --animate-meteor: meteor 5s linear infinite;
   /* Heart beat animation variable */
-  --animate-heartBeat: heartBeat 1s ease-in-out infinite;
+  --animate-heartBeat: heartBeat 3s ease-in-out infinite;
   @keyframes heartBeat {
     0% {
       transform: scale(1);
     }
-    14% {
-      transform: scale(1.3);
-    }
     28% {
-      transform: scale(1);
+      transform: scale(1.2);
     }
     42% {
-      transform: scale(1.3);
+      transform: scale(1);
     }
     70% {
-      transform: scale(1);
+      transform: scale(1.2);
     }
   }
 }

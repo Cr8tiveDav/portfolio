@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "email": "email dev"
+    "email": "email dev --dir ./emails"
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.1.16",
