@@ -1,8 +1,5 @@
 import { getProjects } from '@/app/sanity/queries';
-import Link from 'next/link';
 import ProjectPreview from '../projects/ProjectPreview';
-
-const options = { next: { revalidate: 30 } }; // Revalidate every 30 seconds
 
 export default async function FeaturedProject() {
   const projects = await getProjects({ featured: true });
@@ -18,9 +15,6 @@ export default async function FeaturedProject() {
           console.log(project);
           return (
             <div className='mb-8' key={project._id}>
-              {/* <Link href={`/${project.slug.current}`}>
-                <h2 className='text-xl font-semibold'>{project.title}</h2>
-              </Link> */}
               <ProjectPreview project={project} />
             </div>
           );
