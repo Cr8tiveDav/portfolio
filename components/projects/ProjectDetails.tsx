@@ -12,11 +12,14 @@ import { Button } from '../ui/button';
 import { IoIosInformationCircleOutline } from 'react-icons/io';
 import { RxCross2 } from 'react-icons/rx';
 import Container from '../global/Container';
-import { PortableText } from 'next-sanity';
+import { PortableText, toPlainText } from 'next-sanity';
 import React from 'react';
 import { FiGithub } from 'react-icons/fi';
+import Image from 'next/image';
+import { urlFor } from '@/app/sanity/image';
 
 export function ProjectDetailsDialog({ project }) {
+  const description = toPlainText(project.body);
   return (
     <Dialog>
       <DialogTrigger>
@@ -28,7 +31,7 @@ export function ProjectDetailsDialog({ project }) {
           <IoIosInformationCircleOutline />
         </Button>
       </DialogTrigger>
-      <DialogContent className='p-0 w-[90svw]! max-w-[90svw]! lg:max-w-[80svw]! h-[90svh]! max-h-[90svh]! block gap-0 overflow-hidden'>
+      <DialogContent className='p-0 w-[95svw]! max-w-[95svw]! lg:max-w-[80svw]! h-[95svh]! max-h-[95svh]! lg:max-h-[90svh]! block gap-0 overflow-hidden'>
         <nav className='h-fit flex flex-row items-center justify-between p-4 text-muted-foreground border-b'>
           <div className='flex flex-row items-center gap-4'>
             <DialogClose asChild>
@@ -50,7 +53,7 @@ export function ProjectDetailsDialog({ project }) {
                 {project.title}
               </DialogTitle>
               <DialogDescription className='text-md'>
-                <PortableText value={project.body} />
+                {description}
               </DialogDescription>
             </DialogHeader>
             <div className='mt-10'>
@@ -58,6 +61,22 @@ export function ProjectDetailsDialog({ project }) {
                 screenshots
               </h2>
               <hr />
+              <div className='w-full h-[400] sm:h-[470] flex gap-4 mt-4 border-b overflow-x-auto'>
+                {project.screenshots.map((screenshot, i) => (
+                  <div
+                    key={i}
+                    className='w-62.5 bg-gray-100 flex items-center shrink-0 my-4 border rounded-md overflow-hidden'
+                  >
+                    <Image
+                      src={urlFor(screenshot).url()}
+                      alt={`screenshot ${i + 1}`}
+                      width={400}
+                      height={800}
+                      className='w-full h-full object-contain'
+                    />
+                  </div>
+                ))}
+              </div>
               {Array.from({ length: 10 }).map((_, i) => (
                 <div key={i} className='text-muted-foreground my-3'>
                   <p>
