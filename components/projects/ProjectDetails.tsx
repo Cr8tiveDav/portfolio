@@ -91,89 +91,11 @@ export function ProjectDetailsDialog({ project }) {
                 </div>
               ))}
             </div>
-            {/* <div className='border-b'></div> */}
           </Container>
         </article>
       </DialogContent>
-
-      {/* <DialogContent className='sm:max-w-3xl md:max-w-4xl lg:max-w-5xl h-[85vh] max-h-[85vh] overflow-y-auto'>
-        <div className='fixed inset-y-0'>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae
-        </div>
-        <hr className='w-full border-b-2' />
-        <DialogHeader className=''>
-          <DialogTitle>Sticky Footer</DialogTitle>
-          <DialogDescription>
-            This dialog has a sticky footer that stays visible while the content
-            scrolls. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </DialogDescription>
-        </DialogHeader>
-        <div className='no-scrollbar -mx-4 max-h-[50vh] overflow-y-auto '>
-          {Array.from({ length: 10 }).map((_, index) => (
-            <p key={index} className='mb-4 leading-normal'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-          ))}
-        </div>
-        <DialogFooter>
-          <DialogClose render={<Button variant='outline'>Close</Button>} />
-        </DialogFooter>
-      </DialogContent> */}
     </Dialog>
   );
 }
-
-// import React from 'react';
-// import {
-//   Dialog,
-//   DialogClose,
-//   DialogContent,
-//   DialogDescription,
-//   DialogFooter,
-//   DialogHeader,
-//   DialogTitle,
-//   DialogTrigger,
-// } from '../ui/dialog';
-// import { Button } from '../ui/button';
-// import { IoIosInformationCircleOutline } from 'react-icons/io';
-
-// const ProjectDetailsDialog = () => {
-//   return (
-//     <Dialog>
-//       <DialogTrigger asChild>
-//         <Button
-//           size='icon-lg'
-//           variant='outline'
-//           className='cursor-pointer hover:text-blue-700'
-//         >
-//           <IoIosInformationCircleOutline />
-//         </Button>
-//       </DialogTrigger>
-//       <DialogContent className='sm:max-w-3xl md:max-w-4xl lg:max-w-5xl h-[85vh] max-h-[85vh] overflow-y-auto'>
-//         <DialogHeader className='fixed top-0 inset-x-0 border-b'>
-//           <DialogTitle>Project Details</DialogTitle>
-//           <DialogDescription>
-//             This is a detailed view of the project. Lorem ipsum dolor sit amet,
-//           </DialogDescription>
-//         </DialogHeader>
-//         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 overflow-y-auto mt-8'>
-//           {/* Project details content would go here */}
-//           Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed nam cum
-
-//           <p>test</p>
-//           <p>test</p>
-//           <p>test</p>
-//         </div>
-//         <DialogFooter>{/* <DialogClose>Close</DialogClose> */}</DialogFooter>
-//       </DialogContent>
-//     </Dialog>
-//   );
-// };
 
 export default ProjectDetailsDialog;
