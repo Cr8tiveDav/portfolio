@@ -11,7 +11,7 @@ const Navbar = () => {
   const { toggle } = useSidebar();
   return (
     <nav className='fixed inset-x-0 z-30 bg-white/30 dark:bg-black/70 backdrop-blur-md border-b py-4'>
-      <Container className='xl:max-w-7xl flex justify-between align-middle'>
+      <Container className='xl:max-w-300 flex justify-between align-middle'>
         <Logo />
         <div className='flex gap-4'>
           <ThemeMode />
