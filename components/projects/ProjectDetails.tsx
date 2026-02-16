@@ -3,7 +3,6 @@ import {
   DialogClose,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -12,11 +11,13 @@ import { Button } from '../ui/button';
 import { IoIosInformationCircleOutline } from 'react-icons/io';
 import { RxCross2 } from 'react-icons/rx';
 import Container from '../global/Container';
-import { PortableText, toPlainText } from 'next-sanity';
-import React from 'react';
+import { toPlainText } from 'next-sanity';
 import { FiGithub } from 'react-icons/fi';
 import Image from 'next/image';
 import { urlFor } from '@/app/sanity/image';
+import { Badge } from '../ui/badge';
+import { CiCircleCheck } from 'react-icons/ci';
+import { BsDot } from 'react-icons/bs';
 
 export function ProjectDetailsDialog({ project }) {
   const description = toPlainText(project.body);
@@ -46,8 +47,8 @@ export function ProjectDetailsDialog({ project }) {
             <FiGithub />
           </Button>
         </nav>
-        <article className=' max-h-[80vh] overflow-y-auto'>
-          <Container className='md:max-w-2xl xl:max-w-5xl'>
+        <article className=' max-h-[85vh] lg:max-h-[80vh] overflow-y-auto'>
+          <Container className='xl:max-w-5xl'>
             <DialogHeader className='text-left mt-10'>
               <DialogTitle className='text-2xl mb-4'>
                 {project.title}
@@ -61,11 +62,11 @@ export function ProjectDetailsDialog({ project }) {
                 screenshots
               </h2>
               <hr />
-              <div className='w-full h-[400] sm:h-[470] flex gap-4 mt-4 border-b overflow-x-auto'>
+              <div className='w-full h-[400] sm:h-[470] flex gap-4 mt-4 border-b border-accent/60 overflow-x-auto'>
                 {project.screenshots.map((screenshot, i) => (
                   <div
                     key={i}
-                    className='w-62.5 bg-gray-100 flex items-center shrink-0 my-4 border rounded-md overflow-hidden'
+                    className='w-62.5 bg-accent flex items-center shrink-0 my-4 border rounded-md overflow-hidden'
                   >
                     <Image
                       src={urlFor(screenshot).url()}
@@ -77,19 +78,56 @@ export function ProjectDetailsDialog({ project }) {
                   </div>
                 ))}
               </div>
-              {Array.from({ length: 10 }).map((_, i) => (
-                <div key={i} className='text-muted-foreground my-3'>
-                  <p>
-                    Far far away, behind the word mountains, far from the
-                    countries Vokalia and Consonantia, there live the blind
-                    texts. Separated they live in Bookmarksgrove right at the
-                    coast of the Semantics, a large language ocean. A small
-                    river named Duden flows by their place and supplies it with
-                    the necessary regelialia. It is a paradisematic country, in
-                    which roasted parts of sentences fly into your mouth.{' '}
-                  </p>
+            </div>
+            <hr className='mt-12 mb-8' />
+            <div className='flex flex-col md:flex-row justify-between gap-15 mb-6'>
+              <div className='basis-1/2'>
+                <h2 className='text-lg mb-2 font-semibold uppercase tracking-wide'>
+                  use cases
+                </h2>
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <div key={i} className='text-muted-foreground my-3'>
+                    <div className='flex justify-center gap-4  text-sm border rounded-md p-4 bg-accent/30'>
+                      <CiCircleCheck className='text-xl text-blue-500 shrink-0' />
+                      <p>
+                        Far far away, behind the word mountains, far from the
+                        countries Vokalia and Consonantia.{' '}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className='basis-1/2'>
+                <div>
+                  <h2 className='text-lg mb-2 font-semibold uppercase tracking-wide'>
+                    tech stack
+                  </h2>
+                  <div className='flex flex-wrap gap-2 mb-6'>
+                    {project.techStack.map((tech, i) => (
+                      <Badge key={i} variant='secondary' className=''>
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
                 </div>
-              ))}
+                <div>
+                  <h2 className='text-lg mb-2 font-semibold uppercase tracking-wide'>
+                    learnings
+                  </h2>
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <div
+                      key={i}
+                      className='text-sm text-muted-foreground flex gap-2 my-3'
+                    >
+                      <BsDot className='text-2xl text-blue-500 shrink-0' />
+                      <p>
+                        Far far away, behind the word mountains, far from the
+                        countries Vokalia and Consonantia.{' '}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </Container>
         </article>
