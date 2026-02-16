@@ -12,7 +12,6 @@ export default async function FeaturedProject() {
       </h2>
       <div>
         {projects.map((project) => {
-          console.log(project);
           return (
             <div className='mb-8' key={project._id}>
               <ProjectPreview project={project} />
