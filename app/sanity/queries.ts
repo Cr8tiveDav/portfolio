@@ -7,6 +7,8 @@ interface GetFeaturedProjectsProps {
   end?: number;
 }
 
+const options = { next: { revalidate: 30 } }; // Revalidate every 30 seconds
+
 export const getProjects = async ({
   featured = null,
   start = 0,
@@ -20,11 +22,16 @@ export const getProjects = async ({
   techStack,
   image,
   body,
+  screenshots,
 }`;
 
-  return await client.fetch<SanityDocument[]>(query, {
-    featured,
-    start,
-    end,
-  });
+  return await client.fetch<SanityDocument[]>(
+    query,
+    {
+      featured,
+      start,
+      end,
+    },
+    options
+  );
 };
