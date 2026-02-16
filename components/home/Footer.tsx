@@ -1,19 +1,22 @@
 import React from 'react';
 import SocialLinks from '../socials/SocialLinks';
+import Container from '../global/Container';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
     <footer>
       <hr />
-      <section className='my-8 text-muted-foreground flex flex-col items-center gap-4'>
-        <div>
-          <p className='text-sm'>
-            © {currentYear} David Ezeike. All rights reserved.
-          </p>
+      <Container className='my-8 text-muted-foreground'>
+        <div className='flex flex-col md:flex-row items-center justify-between gap-4'>
+          <div>
+            <p className='text-sm'>
+              © {currentYear} David Ezeike. All rights reserved.
+            </p>
+          </div>
+          <SocialLinks className='gap-4' />
         </div>
-        <SocialLinks className='gap-2' />
-        <p className='text-xs'>
+        <p className='text-xs mt-6 text-center'>
           Built with{' '}
           <span
             role='img'
@@ -24,7 +27,7 @@ const Footer = () => {
           </span>{' '}
           by Cr8tiveDav
         </p>
-      </section>
+      </Container>
     </footer>
   );
 };
