@@ -1,5 +1,5 @@
 import { client } from './client';
-import type { SanityDocument } from 'next-sanity';
+import { defineQuery } from 'next-sanity';
 
 interface GetFeaturedProjectsProps {
   featured?: boolean | null;
@@ -14,19 +14,19 @@ export const getProjects = async ({
   start = 0,
   end = 12,
 }: GetFeaturedProjectsProps) => {
-  const query = `*[_type == "project" && ($featured == null ||featuredProject == $featured) && defined(slug.current)]|order(publishedAt desc)[$start...$end]{
-  _id,
-  'slug':slug.current,
-  title,
-  featuredProject,
-  techStack,
-  image,
-  body,
-  screenshots,
-}`;
-
-  return await client.fetch<SanityDocument[]>(
-    query,
+  const PROJECTS_QUERY = defineQuery(
+    `*[_type == "project" && ($featured == null ||featuredProject == $featured) && defined(slug.current)]|order(publishedAt desc)[$start...$end]{_id,
+    'slug':slug.current,
+    title,
+    featuredProject,
+    techStack,
+    image,
+    body,
+    screenshots,
+    }`
+  );
+  return await client.fetch(
+    PROJECTS_QUERY,
     {
       featured,
       start,
