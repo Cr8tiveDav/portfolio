@@ -18,9 +18,10 @@ import { urlFor } from '@/app/sanity/image';
 import { Badge } from '../ui/badge';
 import { CiCircleCheck } from 'react-icons/ci';
 import { BsDot } from 'react-icons/bs';
+import { ProjectProps } from '@/utils/types';
 
-export function ProjectDetailsDialog({ project }) {
-  const description = toPlainText(project.body);
+export function ProjectDetailsDialog({ project }: { project: ProjectProps }) {
+  const description = project.body && toPlainText(project.body);
   return (
     <Dialog>
       <DialogTrigger>
@@ -63,7 +64,7 @@ export function ProjectDetailsDialog({ project }) {
               </h2>
               <hr />
               <div className='w-full h-[400] sm:h-[470] flex gap-4 mt-4 border-b border-accent/60 overflow-x-auto'>
-                {project.screenshots.map((screenshot, i) => (
+                {project.screenshots?.map((screenshot, i) => (
                   <div
                     key={i}
                     className='w-62.5 bg-accent flex items-center shrink-0 my-4 border rounded-md overflow-hidden'
@@ -103,7 +104,7 @@ export function ProjectDetailsDialog({ project }) {
                     tech stack
                   </h2>
                   <div className='flex flex-wrap gap-2 mb-6'>
-                    {project.techStack.map((tech, i) => (
+                    {project.techStack?.map((tech, i) => (
                       <Badge key={i} variant='secondary' className=''>
                         {tech}
                       </Badge>
