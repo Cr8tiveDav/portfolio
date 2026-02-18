@@ -1,22 +1,16 @@
 import { getProjects } from '@/app/sanity/queries';
 import ProjectPreview from '../projects/ProjectPreview';
+import SectionTitle from '../global/SectionTitle';
 
 export default async function FeaturedProject() {
   const projects = await getProjects({ featured: true });
-  console.log(projects);
 
   return (
-    <section className='py-16'>
-      <h2 className='text-3xl md:text-5xl dark:text-blue-100 text-center font-semibold mb-8'>
-        Featured Projects
-      </h2>
-      <div>
+    <section id='projects' className='py-16 scroll-m-20'>
+      <SectionTitle text='featured projects' className='text-center' />
+      <div className='flex flex-col items-center md:flex-row md:items-stretch md:justify-center gap-10'>
         {projects.map((project) => {
-          return (
-            <div className='mb-8' key={project._id}>
-              <ProjectPreview project={project} />
-            </div>
-          );
+          return <ProjectPreview key={project._id} project={project} />;
         })}
       </div>
     </section>

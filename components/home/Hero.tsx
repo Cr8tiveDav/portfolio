@@ -8,9 +8,12 @@ import SocialLinks from '../socials/SocialLinks';
 
 const Hero = () => {
   return (
-    <section className='min-h-screen flex flex-col items-center justify-center text-center'>
+    <section
+      id='hero'
+      className='min-h-screen scroll-m-20 flex flex-col items-center justify-center text-center'
+    >
       <div>
-        <h1 className='text-4xl md:text-5xl lg:text-7xl font-semibold mb-4 bg-linear-to-r from-blue-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent drop-shadow-[0_4px_10px_rgba(59,130,246,0.5)]'>
+        <h1 className='text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 bg-linear-to-r from-blue-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent drop-shadow-[0_4px_10px_rgba(59,130,246,0.5)]'>
           <TypeAnimation
             sequence={['Hi,', 2000, "Hi, I'm David Ezeike"]}
             wrapper='span'

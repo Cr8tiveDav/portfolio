@@ -1,13 +1,12 @@
 import { myExperience } from '@/utils/data';
 import { BsDot } from 'react-icons/bs';
 import React from 'react';
+import SectionTitle from '../global/SectionTitle';
 
 const MyExperience = () => {
   return (
     <section className='py-16'>
-      <h2 className='text-3xl md:text-5xl dark:text-blue-100 text-center font-semibold mb-8'>
-        My Experience
-      </h2>
+      <SectionTitle text='my experience' className='text-center' />
 
       <article>
         {myExperience.map((exp, i) => {
@@ -24,7 +23,9 @@ const MyExperience = () => {
               </div>
 
               <hr className='my-2' />
-              <p className='text-muted-foreground'>{exp.description}</p>
+              <p className='text-muted-foreground line-clamp-3'>
+                {exp.description}
+              </p>
             </div>
           );
         })}
