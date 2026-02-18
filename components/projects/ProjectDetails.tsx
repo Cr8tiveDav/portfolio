@@ -8,7 +8,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { Button } from '../ui/button';
-import { IoIosInformationCircleOutline } from 'react-icons/io';
+import { FiInfo } from 'react-icons/fi';
 import { RxCross2 } from 'react-icons/rx';
 import Container from '../global/Container';
 import { toPlainText } from 'next-sanity';
@@ -28,12 +28,12 @@ export function ProjectDetailsDialog({ project }: { project: ProjectProps }) {
         <Button
           size='icon-lg'
           variant='outline'
-          className='cursor-pointer hover:text-blue-700'
+          className='cursor-pointer hover:text-blue-500 shrink-0'
         >
-          <IoIosInformationCircleOutline />
+          <FiInfo />
         </Button>
       </DialogTrigger>
-      <DialogContent className='p-0 w-[95svw]! max-w-[95svw]! lg:max-w-[80svw]! h-[95svh]! max-h-[95svh]! lg:max-h-[90svh]! block gap-0 overflow-hidden'>
+      <DialogContent className='p-0 w-[92svw]! max-w-[95svw]! lg:max-w-[80svw]! h-[95svh]! max-h-[95svh]! lg:max-h-[90svh]! block gap-0 overflow-hidden'>
         <nav className='h-fit flex flex-row items-center justify-between p-4 text-muted-foreground border-b'>
           <div className='flex flex-row items-center gap-4'>
             <DialogClose asChild>
@@ -41,16 +41,16 @@ export function ProjectDetailsDialog({ project }: { project: ProjectProps }) {
                 <RxCross2 />
               </Button>
             </DialogClose>
-            <span className='h-4 w-px border-l border-gray-600'></span>
+            <span className='h-4 w-px border-l border-gray-300 dark:border-gray-600'></span>
             <p className='text-sm font-medium uppercase'>Project Details</p>
           </div>
           <Button size='icon' variant='outline' className=''>
             <FiGithub />
           </Button>
         </nav>
-        <article className=' max-h-[85vh] lg:max-h-[80vh] overflow-y-auto'>
-          <Container className='xl:max-w-5xl'>
-            <DialogHeader className='text-left mt-10'>
+        <article className=' max-h-[85vh] lg:max-h-[80vh] p-8 overflow-y-auto'>
+          <Container className='xl:max-w-5xl p-0'>
+            <DialogHeader className='text-left'>
               <DialogTitle className='text-2xl mb-4'>
                 {project.title}
               </DialogTitle>
@@ -86,14 +86,11 @@ export function ProjectDetailsDialog({ project }: { project: ProjectProps }) {
                 <h2 className='text-lg mb-2 font-semibold uppercase tracking-wide'>
                   use cases
                 </h2>
-                {Array.from({ length: 5 }).map((_, i) => (
+                {project.useCases?.map((useCase, i) => (
                   <div key={i} className='text-muted-foreground my-3'>
                     <div className='flex justify-center gap-4  text-sm border rounded-md p-4 bg-accent/30'>
                       <CiCircleCheck className='text-xl text-blue-500 shrink-0' />
-                      <p>
-                        Far far away, behind the word mountains, far from the
-                        countries Vokalia and Consonantia.{' '}
-                      </p>
+                      <p>{useCase}</p>
                     </div>
                   </div>
                 ))}
@@ -115,16 +112,13 @@ export function ProjectDetailsDialog({ project }: { project: ProjectProps }) {
                   <h2 className='text-lg mb-2 font-semibold uppercase tracking-wide'>
                     learnings
                   </h2>
-                  {Array.from({ length: 5 }).map((_, i) => (
+                  {project.learnings?.map((insight, i) => (
                     <div
                       key={i}
                       className='text-sm text-muted-foreground flex gap-2 my-3'
                     >
                       <BsDot className='text-2xl text-blue-500 shrink-0' />
-                      <p>
-                        Far far away, behind the word mountains, far from the
-                        countries Vokalia and Consonantia.{' '}
-                      </p>
+                      <p>{insight}</p>
                     </div>
                   ))}
                 </div>
