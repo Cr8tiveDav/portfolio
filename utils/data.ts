@@ -16,10 +16,10 @@ type ExperienceProps = {
 };
 
 export const links: LinkProps[] = [
-  { id: 1, url: '/', name: 'Home' },
+  { id: 1, url: '#hero', name: 'Home' },
   { id: 2, url: '#about', name: 'About' },
-  { id: 3, url: '/projects', name: 'Projects' },
-  { id: 4, url: '/contact', name: 'Contact' },
+  { id: 3, url: '#projects', name: 'Projects' },
+  { id: 4, url: '#contact', name: 'Contact' },
 ];
 
 export const techStack: TechStackProps[] = [
