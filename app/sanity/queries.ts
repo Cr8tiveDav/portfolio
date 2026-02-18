@@ -23,6 +23,8 @@ export const getProjects = async ({
     image,
     body,
     screenshots,
+    useCases,
+    learnings
     }`
   );
   return await client.fetch(
