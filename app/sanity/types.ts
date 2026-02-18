@@ -64,6 +64,8 @@ export type Project = {
   }>;
   techStack?: Array<string>;
   featuredProject?: boolean;
+  useCases?: Array<string>;
+  learnings?: Array<string>;
 };
 
 export type SanityImageCrop = {
@@ -204,7 +206,7 @@ export declare const internalGroqTypeReferenceTo: unique symbol;
 
 // Source: ../my-portfolio/app/sanity/queries.ts
 // Variable: PROJECTS_QUERY
-// Query: *[_type == "project" && ($featured == null ||featuredProject == $featured) && defined(slug.current)]|order(publishedAt desc)[$start...$end]{_id,    'slug':slug.current,    title,    featuredProject,    techStack,    image,    body,    screenshots,    }
+// Query: *[_type == "project" && ($featured == null ||featuredProject == $featured) && defined(slug.current)]|order(publishedAt desc)[$start...$end]{_id,    'slug':slug.current,    title,    featuredProject,    techStack,    image,    body,    screenshots,    useCases,    learnings    }
 export type PROJECTS_QUERY_RESULT = Array<{
   _id: string;
   slug: string | null;
@@ -244,12 +246,14 @@ export type PROJECTS_QUERY_RESULT = Array<{
     _type: "image";
     _key: string;
   }> | null;
+  useCases: Array<string> | null;
+  learnings: Array<string> | null;
 }>;
 
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == \"project\" && ($featured == null ||featuredProject == $featured) && defined(slug.current)]|order(publishedAt desc)[$start...$end]{_id,\n    'slug':slug.current,\n    title,\n    featuredProject,\n    techStack,\n    image,\n    body,\n    screenshots,\n    }": PROJECTS_QUERY_RESULT;
+    "*[_type == \"project\" && ($featured == null ||featuredProject == $featured) && defined(slug.current)]|order(publishedAt desc)[$start...$end]{_id,\n    'slug':slug.current,\n    title,\n    featuredProject,\n    techStack,\n    image,\n    body,\n    screenshots,\n    useCases,\n    learnings\n    }": PROJECTS_QUERY_RESULT;
   }
 }
