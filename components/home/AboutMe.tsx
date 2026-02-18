@@ -2,6 +2,7 @@
 import { techStack } from '@/utils/data';
 import React, { useState } from 'react';
 import Image from 'next/image';
+import SectionTitle from '../global/SectionTitle';
 
 const AboutMe = () => {
   const [selectedTechCategory, setSelectedTechCategory] =
@@ -23,10 +24,8 @@ const AboutMe = () => {
     filteredTechStack.length > 0 ? filteredTechStack : techStack;
 
   return (
-    <section className='py-16'>
-      <h2 className='text-3xl md:text-5xl dark:text-blue-100 text-center font-semibold mb-8'>
-        About Me
-      </h2>
+    <section id='about' className='py-16 scroll-m-20'>
+      <SectionTitle text='about me' className='text-center' />
       <article className='max-w-5xl mx-auto bg-black/10 dark:bg-black/40 border border-blue-700 rounded-md p-6 mb-16 text-[1.1rem]'>
         <p>
           I&apos;m a Frontend Developer dedicated to crafting aesthetic,
@@ -40,12 +39,12 @@ const AboutMe = () => {
           that don&apos;t compromise on modern design.
         </p>
       </article>
-      <h2 className='text-2xl md:text-4xl dark:text-blue-100 text-center font-semibold mb-8'>
+      <h3 className='scroll-m-20 text-2xl dark:text-blue-100 text-center font-semibold tracking-tight mb-8'>
         Tech Stack
-      </h2>
+      </h3>
 
       {/* Tech stack filter button */}
-      <div className='flex justify-center mb-8'>
+      <div className='flex justify-center flex-wrap mb-8'>
         {techCategory.map((category, i) => {
           return (
             <button
@@ -63,7 +62,7 @@ const AboutMe = () => {
       </div>
 
       {/* Tech stack */}
-      <article className='grid grid-cols-[repeat(auto-fit,130px)] sm:grid-cols-[repeat(auto-fit,150px)] justify-center gap-4'>
+      <article className='grid grid-cols-[repeat(auto-fit,120px)] sm:grid-cols-[repeat(auto-fit,150px)] justify-center gap-4'>
         {displayedTechStack.map((tech) => {
           return (
             <div
