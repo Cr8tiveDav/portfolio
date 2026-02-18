@@ -37,7 +37,6 @@ export const sendEmailAction = async (
         'Thanks for sending us a message. We will get back to you shortly.',
     };
   } catch (error) {
-    console.log(error);
     return { message: 'Error' };
   }
 };
