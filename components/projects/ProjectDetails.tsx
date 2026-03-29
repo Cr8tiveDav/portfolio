@@ -24,7 +24,7 @@ export function ProjectDetailsDialog({ project }: { project: ProjectProps }) {
   const description = project.body && toPlainText(project.body);
   return (
     <Dialog>
-      <DialogTrigger>
+      <DialogTrigger asChild>
         <Button
           size='icon-lg'
           variant='outline'
