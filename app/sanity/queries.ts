@@ -18,6 +18,8 @@ export const getProjects = async ({
     `*[_type == "project" && ($featured == null ||featuredProject == $featured) && defined(slug.current)]|order(publishedAt desc)[$start...$end]{_id,
     'slug':slug.current,
     title,
+    repositoryUrl,
+    liveDemoUrl,
     featuredProject,
     techStack,
     image,

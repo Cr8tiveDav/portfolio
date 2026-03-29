@@ -12,6 +12,8 @@
  * ---------------------------------------------------------------------------------
  */
 
+export declare const internalGroqTypeReferenceTo: unique symbol;
+
 // Source: schema.json
 export type SanityImageAssetReference = {
   _ref: string;
@@ -28,6 +30,8 @@ export type Project = {
   _rev: string;
   title?: string;
   slug?: Slug;
+  repositoryUrl?: string;
+  liveDemoUrl?: string;
   publishedAt?: string;
   image?: {
     asset?: SanityImageAssetReference;
@@ -202,15 +206,15 @@ export type AllSanitySchemaTypes =
   | SanityImageAsset
   | Geopoint;
 
-export declare const internalGroqTypeReferenceTo: unique symbol;
-
 // Source: ../my-portfolio/app/sanity/queries.ts
 // Variable: PROJECTS_QUERY
-// Query: *[_type == "project" && ($featured == null ||featuredProject == $featured) && defined(slug.current)]|order(publishedAt desc)[$start...$end]{_id,    'slug':slug.current,    title,    featuredProject,    techStack,    image,    body,    screenshots,    useCases,    learnings    }
+// Query: *[_type == "project" && ($featured == null ||featuredProject == $featured) && defined(slug.current)]|order(publishedAt desc)[$start...$end]{_id,    'slug':slug.current,    title,    repositoryUrl,    liveDemoUrl,    featuredProject,    techStack,    image,    body,    screenshots,    useCases,    learnings    }
 export type PROJECTS_QUERY_RESULT = Array<{
   _id: string;
   slug: string | null;
   title: string | null;
+  repositoryUrl: string | null;
+  liveDemoUrl: string | null;
   featuredProject: boolean | null;
   techStack: Array<string> | null;
   image: {
@@ -254,6 +258,6 @@ export type PROJECTS_QUERY_RESULT = Array<{
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == \"project\" && ($featured == null ||featuredProject == $featured) && defined(slug.current)]|order(publishedAt desc)[$start...$end]{_id,\n    'slug':slug.current,\n    title,\n    featuredProject,\n    techStack,\n    image,\n    body,\n    screenshots,\n    useCases,\n    learnings\n    }": PROJECTS_QUERY_RESULT;
+    "*[_type == \"project\" && ($featured == null ||featuredProject == $featured) && defined(slug.current)]|order(publishedAt desc)[$start...$end]{_id,\n    'slug':slug.current,\n    title,\n    repositoryUrl,\n    liveDemoUrl,\n    featuredProject,\n    techStack,\n    image,\n    body,\n    screenshots,\n    useCases,\n    learnings\n    }": PROJECTS_QUERY_RESULT;
   }
 }
