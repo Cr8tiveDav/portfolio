@@ -70,7 +70,9 @@ const ProjectPreview = ({ project }: { project: ProjectProps }) => {
             variant='outline'
             className='cursor-pointer hover:text-blue-500 shrink-0'
           >
-            <FiExternalLink />
+            <a href={`${project?.liveDemoUrl}`} target='_blank'>
+              <FiExternalLink />
+            </a>
           </Button>
           <Button
             size='lg'
@@ -78,7 +80,9 @@ const ProjectPreview = ({ project }: { project: ProjectProps }) => {
             className='font-medium bg-black dark:bg-white text-white dark:text-black hover:bg-primary dark:hover:bg-primary hover:text-white dark:hover:text-white cursor-pointer flex-1 flex items-center justify-center min-w-0 flex-wrap'
           >
             <FiGithub />
-            <p>Repository</p>
+            <a href={`${project.repositoryUrl}`} target='_blank'>
+              Repository
+            </a>
           </Button>
           <div className='shrink-0'>
             <ProjectDetailsDialog project={project} />
