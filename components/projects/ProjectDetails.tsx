@@ -19,6 +19,7 @@ import { Badge } from '../ui/badge';
 import { CiCircleCheck } from 'react-icons/ci';
 import { BsDot } from 'react-icons/bs';
 import { ProjectProps } from '@/utils/types';
+import Link from 'next/link';
 
 export function ProjectDetailsDialog({ project }: { project: ProjectProps }) {
   const description = project.body && toPlainText(project.body);
@@ -45,7 +46,9 @@ export function ProjectDetailsDialog({ project }: { project: ProjectProps }) {
             <p className='text-sm font-medium uppercase'>Project Details</p>
           </div>
           <Button size='icon' variant='outline' className=''>
-            <FiGithub />
+            <Link href={project.repositoryUrl || '#'} target='_blank'>
+              <FiGithub />
+            </Link>
           </Button>
         </nav>
         <article className=' max-h-[85vh] lg:max-h-[80vh] p-8 overflow-y-auto'>
