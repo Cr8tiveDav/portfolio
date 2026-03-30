@@ -9,6 +9,7 @@ import { LuMail, LuMapPin, LuPhone } from 'react-icons/lu';
 import TextareaInput from '../form/TextareaInput';
 import SubmitButton from '../form/SubmitButton';
 import SectionTitle from '../global/SectionTitle';
+import { Button } from '../ui/button';
 
 const Contact = () => {
   return (
@@ -43,9 +44,11 @@ const Contact = () => {
             </div>
             <div>
               <p className='font-medium'>Phone</p>
-              <a href='tel:+2349138055798' className='text-muted-foreground'>
-                (+234) 913 805 5798
-              </a>
+              <Button size='xs' className=' p-2 border border-dotted'>
+                <a href='tel:+2349138055798' className='text-white'>
+                  (+234) 913 805 5798
+                </a>
+              </Button>
             </div>
           </div>
         </div>
